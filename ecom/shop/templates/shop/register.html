@@ -1,0 +1,72 @@
+{% extends 'shop/base.html'%}
+
+{% block title %} Easy Shopping - Register {% endblock%}
+
+{% block css %}
+<style>
+
+</style>
+{% endblock%}
+
+{% block body %}
+
+
+<div class="container ">
+    <div>
+        {% for message in messages %}
+        <p class='mt-4' style="color: red">{{ message }}</p>
+        {% endfor %}
+    </div>
+   <div class="row col-md-8">
+        <div class="box ">
+                <h4 class="my-4">Login Your ES Shopping Account</h4>
+    
+                <form action="" method="post">
+                    {% csrf_token %}
+            
+                    <div class="form-group ">
+                        <label for="fname">First Name</label>
+                        <input type="text" class="form-control" name="name1" id="fname" >
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="lname">Last Name</label>
+                        <input type="text" class="form-control" name="name2" id="lname" >
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="username1">User Name</label>
+                        <input type="text" class="form-control" name="username" id="username1">
+                    </div>
+            
+                    <div class="form-group ">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" id="email">
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="pass1">Password</label>
+                        <input type="password" class="form-control" name="pass1" id="pass1" placeholder="At least 6 charcter">
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="pass2"> Re-Type Your Password</label>
+                        <input type="password" class="form-control"  name="pass2" id="pass2" placeholder="Confirm">
+                    </div>
+
+                    <button type="submit" class="btn btn-dark mt-4">Create Your Es Shopping Account</button>
+                    <hr>
+                
+                </form>
+                <a href="/shop/login/"><span class="mt-6">Already Have Account</span></a>
+        </div>
+    
+   </div>
+</div>
+
+
+
+
+{% endblock%}
+
+{% block js %}{% endblock%}

@@ -1,0 +1,114 @@
+{% extends 'shop/base.html'%}
+
+{% block title %}{% endblock%}
+
+{% block css %}
+<style>
+  p {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+  }
+
+  .relation p {
+    color: rgb(59, 158, 59);
+  }
+
+  .profation {
+    background-color: rgb(230, 227, 227);
+    height: 200px;
+  }
+
+  .col-md-8 {
+    text-align: center;
+  }
+
+  #mybtn {
+    text-align: right;
+  }
+</style>
+{% endblock%}
+
+{% block body %}
+
+<body>
+
+  <main role="main">
+    {% load static %}
+    <div class="album  bg-light">
+      <div class="container">
+
+        <h3 class="mt-4" style="font-family: 'Times New Roman', Times, serif; text-align: center;">Great service for
+          great people</h3>
+        <div class="row my-4">
+          <div class="col-md-6 my-4">
+            <p
+              style="font-size: 18px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere eaque vero aspernatur dolorum
+              voluptatibus, praesentium quidem numquam illum totam veritatis eos amet, sunt provident, esse dolorem
+              doloremque assumenda asperiores ratione! </p>
+          </div>
+          <div class="col-md-6">
+            <img src="{% static 'shop/office.jpg'%}" alt="" class="mx-4" height="300px">
+          </div>
+        </div>
+
+        <h2 class=" my-4 " style="font-family: 'Times New Roman', Times, serif; text-align: center;">Our Story
+        </h2>
+        <div class="row mt-4">
+          <div class="col-md-4">
+            <p class="mt-2" style="font-family: 'Times New Roman', Times, serif; font-size: 20px;">Launched in 2019,
+              Easy shopping is a Bangladesh Online Market Placed </p>
+            <p>Support By Our All Customer Our Total Sells 4000 and 40 Brands Support Us Daily Life </p>
+            <p class="mt-2">Esay shopping has more than 1 million products to Offer</p>
+            <p>Lorem ipsum dolor sit,r placeat, unde molestias, reprehenderit necessitatibus! Ullam iste ducimus fugiat
+              illo maiores. Et, necessitatibus?</p>
+            <p class="mt-2">Esay shopping acuried in Daraz 2020</p>
+          </div>
+
+          <div class="col-md-6">
+            <div class="relation">
+              <p> * Esay shopping</p>
+              <p style="font-size: 16px; color: black;" class="mx-4">We provite great value by offering other
+                compritetive price on all product </p>
+              <p> * Fast Delevary</p>
+              <p style="font-size: 16px;color: black;" class="mx-4">We Are Try Product Early Your Head Wants and You
+                Tracking Your Product</p>
+              <p> * TeamWork</p>
+              <p style="font-size: 16px; color: black;" class="mx-4">We Are Think We Our A One Team </p>
+              <p> * Customer Commitment</p>
+              <p style="font-size: 16px; color: black;" class="mx-4">We Are Believe in giving the best to our sellers
+                and Customer </p>
+              <p> * 100% protected </p>
+              <p style="font-size: 16px; color: black;" class="mx-4">We 100% protected your purchece for clicked to
+                develviry</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="profation my-4">
+        <div class="row">
+          <div class="col-md-8 my-4 ">
+            <h2 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Need Professional
+              Help On Your Shopping?</h2>
+            <p style="font-family: Georgia, 'Times New Roman', Times, serif;">We are here to help you under no
+              obligation and at free of cost.</p>
+          </div>
+
+          <div class="col-md-4 my-4">
+            <a href="/shop/"><button type="button" id="mybtn" class="btn btn-lg  btn-success">Continuing Shopping
+              </button></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+
+  {% endblock%}
+
+  {% block js %}{% endblock%}

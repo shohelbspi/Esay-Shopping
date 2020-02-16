@@ -1,0 +1,30 @@
+{% extends 'shop/base.html'%}
+
+{% block title %} Easy Shopping - User Profile {% endblock%}
+
+{% block css %}{% endblock%}
+
+{% block body %}
+<div class="conteiner">
+    
+{% load static %}
+<div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-md-4">
+                <div class="card-body">
+                  <img src="{% static 'shop/test.jpg' %}">
+                  <h5 class="mt-2"> Full Name : {{ user.first_name}} {{user.last_name}}</h5>
+                  <h4 class="mt-2"> User Name : {{ user.username}}</h1>  
+                  <h6> Email : {{ user.email}}</h5> 
+
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+</div>
+<div class="container ">
+
+{% endblock%}
+
+{% block js %}{% endblock%}

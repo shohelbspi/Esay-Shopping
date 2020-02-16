@@ -1,0 +1,73 @@
+{% extends 'shop/base.html'%}
+
+{% block title %} Es Shopping {{Product.product_name}} {% endblock %}
+
+{% block css %}{% endblock%}
+
+
+
+{% block body %}
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="row my-3">
+        <img src="/media/{{Product.image}}" width="240px" height="280px">
+      </div>
+      <div class="row">
+        <a href="/shop/"><button class="btn btn-primary mx-3">Contuning Shopping</button></a>
+        <a href="/shop/checkout"><button class="btn btn-primary">Add To Cart</button></a>
+      </div>
+
+    </div>
+
+    <div class="col-md-8">
+      <h3>{{Product.product_name}}</h3>
+      <p class="" style="font-size:20px"><b>Tk.{{Product.price}} </b></p>
+      <p style="font-size:20px">{{Product.desc}}</p>
+
+
+    </div>
+  </div>
+  <hr>
+
+
+
+</div>
+{% endblock%}
+
+
+
+
+{% block js %}
+
+<script>
+  console.log('Working');
+  if (localStorage.getItem('cart') == null) {
+    var cart = {};
+  }
+  else {
+    cart = JSON.parse(localStorage.getItem('cart'))
+    document.getElementById('cart').innerHTML = Object.keys(cart).length
+  }
+
+  $('.cart').click(function () {
+    console.log("Clicked")
+    var idstr = this.id.toString();
+    console.log(idstr)
+
+    if (cart[idstr] != undefined) {
+      cart[idstr] = cart[idstr] + 1;
+    }
+    else {
+      cart[idstr] = 1;
+    }
+    console.log(cart)
+    localStorage.setItem('cart', JSON.stringify(cart));
+    document.getElementById('cart').innerHTML = Object.keys(cart).length
+  });
+  $('#popcart').popover();
+
+  document.getElementById('popcart').setAttribute("data-content", "<p>Cart for You ! Enjoy Shopping in Easy Shopping </p>");
+</script>
+
+{% endblock%}

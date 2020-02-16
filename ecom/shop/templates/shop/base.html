@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+  <title>{% block title %}{% endblock%}</title>
+  {% block css %}
+  <style>
+    footer .py-3 {
+      background-color: darkgreen;
+    }
+
+    h4 {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .navbar-dark .navbar-brand {
+      color: #1b860e;
+    }
+  </style>
+  {% endblock%}
+
+</head>
+{% load static %}
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/shop/">Easy Shopping</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/shop/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/shop/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/shop/tracker">Tracker</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/shop/contact">Contact</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/blog">Blog</a>
+        </li>
+
+        {% if user.is_authenticated %}
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            {{user.first_name}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/shop/userprofile/">Profile</a>
+            <a class="dropdown-item" href="/shop/logout/">Logout</a>
+            <div class="dropdown-divider"></div>
+          </div>
+        </li>
+
+        {% else%}
+        <li class="nav-item">
+          <a class="nav-link" href="/shop/login/">Singin</a>
+        </li>
+        {%endif%}
+      </ul>
+      <form method="get" action="/shop/search/" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search"
+          id="search">
+        <button class="btn btn-outline-success  my-sm-0" type="submit">Search</button>
+      </form>
+
+
+      <button type="button" class="btn btn-secondary mx-2" id="popcart" data-container="body" data-toggle="popover"
+        data-placement="bottom" data-html="true" data-content="Vivamus
+    sagittis lacus vel augue laoreet rutrum faucibus.">
+        <img src="{% static 'shop/goods.png'%}" alt=""> Cart(<span id='cart'> 0</span>)
+      </button>
+    </div>
+  </nav>
+
+  {% block body %}{% endblock%}
+
+  <br>
+  <hr>
+
+
+  <div class="sideFotter my-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;">Our Service</h4>
+          <a href="/shop/">Home</a><br>
+          <p><a href="/blog/">Blog</a></p>
+        </div>
+        <div class="col-md-4">
+          <h4 style="font-family: Georgia, 'Times New Roman', Times, serif;">Contact Us</h4>
+          <div class="footericon">
+            <a  href="/shop/contact/">Contact us</a>
+            <p class="my-2"><img src="{% static 'shop/phone.png'%}" height="20px" alt="" > <span style="color: darkred;">01739855887</span></p>
+            <p> <img src="{% static 'shop/email.png'%}" height="25px" alt=""> : <span style="color: green;">esay@shop.com</span></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h4 style="font-family: 'Times New Roman', Times, serif;">Esay Shopping <small><a href="/shop/about/">about
+                us</a></small></h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis pariatur, enim saepe quo atque
+            soluta impedit, facilis quae ex amet sunt maiores sit error iure distinctio. Asperiores aliquam
+            tenetur eaque?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- end sideFotter -->
+
+  <div class="footer">
+    <div class="container">
+      <p style="font-family: 'Times New Roman', Times, serif;">CopyRight@ Esay Shopping </p>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+
+  {% block js %}{% endblock%}
+</body>
+
+</html>
